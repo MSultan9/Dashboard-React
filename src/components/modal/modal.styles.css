@@ -1,0 +1,35 @@
+.modal-container {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s;
+}
+
+.modal-text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    background-color: white;
+    border-radius: 4px;
+}
+
+.show-modal {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.modal-container .MuiTableCell-root button{
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.modal-container .MuiTablePagination-root, .modal-container button[title="Add"], .modal-container button[title="View"] {
+    display: none;
+}

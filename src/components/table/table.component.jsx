@@ -2,6 +2,7 @@ import React from 'react';
 import MaterialTable from 'material-table';
 import './table.styles.css'
 import { ToastContainer, toast } from 'react-toastify';
+import ModalComponent from '../modal/modal.component'
 import { forwardRef } from 'react';
 
 import AddBox from '@material-ui/icons/AddBox';
@@ -19,12 +20,15 @@ import Remove from '@material-ui/icons/Remove';
 import SaveAlt from '@material-ui/icons/SaveAlt';
 import Search from '@material-ui/icons/Search';
 import ViewColumn from '@material-ui/icons/ViewColumn';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 class Table extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            users: this.props.users
+            users: this.props.users,
+            openModal: false,
+            selectedUser: null
         }
 
         this.tableIcons = {
@@ -49,7 +53,7 @@ class Table extends React.Component {
     }
 
     validate(data) {
-        let keys = Object.keys(data)
+        let keys = Object.keys(data).slice(0, 5)
         if (keys.length === 5) {
             for (let key of keys) {
                 if (data[key].toString().trim() === '') {
@@ -131,22 +135,28 @@ class Table extends React.Component {
         });
     }
 
+    handleClose = (e) => {
+        if (e.target.classList.contains("modal-container"))
+            this.setState({ openModal: false })
+    }
+
     render() {
         return (
             <div className="table-container">
                 <ToastContainer />
+                <ModalComponent open={this.state.openModal} closeModal={this.handleClose} data={this.state.selectedUser} />
                 <MaterialTable
                     columns={this.props.columns}
                     data={this.state.users}
-                    title="Users List"
+                    title={this.props.title}
                     icons={this.tableIcons}
-                    // actions={[
-                    //     {
-                    //         icon: DeleteOutline,
-                    //         tooltip: 'Delete User',
-                    //         onClick: (event, rowData) => console.log("You want to delete " + rowData.firstName),
-                    //     }
-                    // ]}
+                    actions={[
+                        {
+                            icon: AccountCircleIcon,
+                            tooltip: 'View',
+                            onClick: (event, rowData) => this.setState({ openModal: true, selectedUser: [rowData] }),
+                        }
+                    ]}
                     editable={{
                         onRowAdd: (newData) => this.onRowAdded(newData),
                         onRowUpdate: (newData, oldData) => this.onRowUpdated(newData, oldData),

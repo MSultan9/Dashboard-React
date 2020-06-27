@@ -19,7 +19,7 @@ class TablePage extends React.Component {
     render() {
         return (
             <div className="page-container">
-                <Table users={usersList} columns={this.columns} />
+                <Table users={usersList} columns={this.columns} title="Users List" />
             </div>
         );
     }
