@@ -4,9 +4,9 @@ import './dashboard-page.styles.css'
 import { messagesReceived, dayLabels, messagesFailed, messagesSent, callsSent, callsReceived } from "../../mockData";
 
 class DashboardPage extends React.Component {
-    state = {}
-    render() {
-        let messagesDatasets = [
+    constructor() {
+        super();
+        this.messagesDatasets = [
             {
                 label: "Messages Sent",
                 data: messagesSent,
@@ -27,7 +27,7 @@ class DashboardPage extends React.Component {
             }
         ]
 
-        let callsDatasets = [
+        this.callsDatasets = [
             {
                 label: "Calls Sent",
                 data: callsSent,
@@ -41,18 +41,20 @@ class DashboardPage extends React.Component {
                 borderColor: "blue"
             }
         ]
+    }
+    render() {
         return (
-            <div className="container">
+            <div className="dashboard-container">
                 <header>
                     <i className="fa fa-comment"></i>
-                    <h1>Messages Dashboard</h1>
+                    <h1 className="m-0">Messages Dashboard</h1>
                 </header>
-                <ChartDashboard labels={dayLabels} datasets={messagesDatasets} />
+                <ChartDashboard labels={dayLabels} datasets={this.messagesDatasets} />
                 <header>
                     <i className="fa fa-phone"></i>
-                    <h1>Calls Dashboard</h1>
+                    <h1 className="m-0">Calls Dashboard</h1>
                 </header>
-                <ChartDashboard labels={dayLabels} datasets={callsDatasets} />
+                <ChartDashboard labels={dayLabels} datasets={this.callsDatasets} />
             </div>
         );
     }
