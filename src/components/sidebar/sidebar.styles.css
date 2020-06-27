@@ -1,0 +1,46 @@
+.sidebar {
+    padding: 1rem;
+    background-color: white;
+    font-size: 1.6rem;
+    display: grid;
+    grid-template-rows: 2fr 4fr 1fr;
+    justify-items: center;
+    box-shadow: 20px 0 40px -25px rgb(232,232, 239);
+}
+
+.sidebar-fixed {
+    position: fixed;
+    height: 100%;
+    width: 15%;
+}
+
+.sidebar > div:last-child {
+    align-self: flex-end;
+    cursor: pointer;
+}
+
+.logo {
+    width: 10rem;
+    height: 10rem;
+    object-fit: contain;
+}
+
+.tabs {
+    display: flex;
+    flex-direction: column;
+}
+
+.tabs > a {
+    padding: 1rem 0;
+    margin: 0.5rem 0;
+    text-decoration: none;
+    color: rgb(153,153,189);
+}
+
+.tabs > .active {
+    color: rgb(46,46,77);
+}
+
+.fa {
+    margin-right: 1rem;
+}
