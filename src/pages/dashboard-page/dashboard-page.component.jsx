@@ -47,12 +47,12 @@ class DashboardPage extends React.Component {
             <div className="dashboard-container">
                 <header>
                     <i className="fa fa-comment"></i>
-                    <h1 className="m-0">Messages Dashboard</h1>
+                    <h1 className="m-0">Messages Chart</h1>
                 </header>
                 <ChartDashboard labels={dayLabels} datasets={this.messagesDatasets} />
                 <header>
                     <i className="fa fa-phone"></i>
-                    <h1 className="m-0">Calls Dashboard</h1>
+                    <h1 className="m-0">Calls Chart</h1>
                 </header>
                 <ChartDashboard labels={dayLabels} datasets={this.callsDatasets} />
             </div>

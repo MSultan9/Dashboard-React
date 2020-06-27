@@ -1,13 +1,13 @@
 import React from 'react';
 import logo from '../../assets/monty.png';
 import './sidebar.styles.css'
-import { NavLink } from 'react-router-dom'
+import { NavLink, withRouter } from 'react-router-dom'
 
 class SideBar extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className={this.props.location.pathname === '/login' ? 'd-none' : 'd-block'}>
                 <div className="sidebar sidebar-fixed">
                     <img src={logo} className="logo" alt="logo" />
                     <div className="tabs">
@@ -15,7 +15,7 @@ class SideBar extends React.Component {
                         <NavLink to="/table"><i className="fa fa-table"></i>Table</NavLink>
                         <NavLink to="/user"><i className="fa fa-user"></i>User Info</NavLink>
                     </div>
-                    <div><i className="fa fa-sign-out"></i>Logout</div>
+                    <div className="logout"><i className="fa fa-sign-out"></i>Logout</div>
                 </div>
                 <div></div>
             </div>
@@ -23,4 +23,4 @@ class SideBar extends React.Component {
     }
 }
 
-export default SideBar;
+export default withRouter(SideBar);

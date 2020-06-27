@@ -55,7 +55,7 @@ class UserPage extends React.Component {
         return (
             <div className="form-container">
                 <h1>Edit Profile</h1>
-                <form onSubmit={this.handleSubmit}>
+                <form className="profile-form" onSubmit={this.handleSubmit}>
                     <div className="form-content">
                         <div>
                             <label htmlFor="name">Name</label>
@@ -85,7 +85,7 @@ class UserPage extends React.Component {
                         </div>
                     </div>
                     <div className="submit">
-                        <input type="submit" value="Submit" />
+                        <input className="btn" type="submit" value="Submit" />
                     </div>
                 </form>
                 <ToastContainer />
