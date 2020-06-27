@@ -13,7 +13,7 @@ class SideBar extends React.Component {
                     <div className="tabs">
                         <NavLink to="/dashboard"><i className="fa fa-bar-chart"></i>Dashboard</NavLink>
                         <NavLink to="/table"><i className="fa fa-table"></i>Table</NavLink>
-                        <NavLink to="/user"><i className="fa fa-user"></i>User</NavLink>
+                        <NavLink to="/user"><i className="fa fa-user"></i>User Info</NavLink>
                     </div>
                     <div><i className="fa fa-sign-out"></i>Logout</div>
                 </div>
