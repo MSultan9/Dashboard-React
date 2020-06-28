@@ -11,6 +11,10 @@ class LoginPage extends React.Component {
     }
 
     componentDidMount() {
+        let storageData = localStorage.getItem('profileData')
+        let userInfo = JSON.parse(storageData)
+        if (userInfo)
+            this.setState({ email: userInfo.email, password: userInfo.password })
         const inputs = document.querySelectorAll('.input')
 
         inputs.forEach(element => {
@@ -41,9 +45,10 @@ class LoginPage extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        if (this.state.enteredPassword === this.state.password && this.state.enteredEmail === this.state.email)
+        if (this.state.enteredPassword === this.state.password && this.state.enteredEmail === this.state.email) {
             this.props.history.push('dashboard')
-        else
+            localStorage.setItem('isLoggedIn', true);
+        } else
             toast.error('Login Failed', {
                 position: "top-right",
                 autoClose: 5000,

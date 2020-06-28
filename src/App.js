@@ -6,16 +6,17 @@ import DashboardPage from './pages/dashboard-page/dashboard-page.component';
 import TablePage from './pages/table-page/table-page.component';
 import UserPage from './pages/user-page/user-page.component';
 import SideBar from './components/sidebar/sidebar.component'
+import AuthenticatedRoute from './components/autenticated-route/authenticated-route.component'
 
 function App() {
   return (
     <main>
       <SideBar></SideBar>
       <Switch>
-        <Route exact path="/login" component={LoginPage} />
-        <Route path="/dashboard" component={DashboardPage} />
-        <Route path="/table" component={TablePage} />
-        <Route path="/user" component={UserPage} />
+        <Route path="/login" component={LoginPage} />
+        <AuthenticatedRoute path="/dashboard" component={DashboardPage} />
+        <AuthenticatedRoute path="/table" component={TablePage} />
+        <AuthenticatedRoute path="/user" component={UserPage} />
         <Route path="*" ><Redirect to="/login" /> </Route>
       </Switch>
     </main>

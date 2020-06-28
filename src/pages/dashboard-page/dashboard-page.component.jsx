@@ -11,19 +11,19 @@ class DashboardPage extends React.Component {
                 label: "Messages Sent",
                 data: messagesSent,
                 fill: false,
-                borderColor: "green"
+                borderColor: "#38d39f"
             },
             {
                 label: "Messages Received",
                 data: messagesReceived,
                 fill: false,
-                borderColor: "blue"
+                borderColor: "#0c4da6"
             },
             {
                 label: "Messages Failed",
                 data: messagesFailed,
                 fill: false,
-                borderColor: "red"
+                borderColor: "rgb(234,34,40)"
             }
         ]
 
@@ -32,13 +32,13 @@ class DashboardPage extends React.Component {
                 label: "Calls Sent",
                 data: callsSent,
                 fill: false,
-                borderColor: "green"
+                borderColor: "#38d39f"
             },
             {
                 label: "Calls Received",
                 data: callsReceived,
                 fill: false,
-                borderColor: "blue"
+                borderColor: "#0c4da6"
             }
         ]
     }

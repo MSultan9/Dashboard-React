@@ -5,6 +5,11 @@ import { NavLink, withRouter } from 'react-router-dom'
 
 class SideBar extends React.Component {
 
+    logOut = () => {
+        localStorage.setItem("isLoggedIn", false)
+        this.props.history.push("/login")
+    }
+
     render() {
         return (
             <div className={this.props.location.pathname === '/login' ? 'd-none' : 'd-block'}>
@@ -15,7 +20,7 @@ class SideBar extends React.Component {
                         <NavLink to="/table"><i className="fa fa-table"></i>Table</NavLink>
                         <NavLink to="/user"><i className="fa fa-user"></i>User Info</NavLink>
                     </div>
-                    <div className="logout"><i className="fa fa-sign-out"></i>Logout</div>
+                    <div className="logout" onClick={this.logOut}><i className="fa fa-sign-out"></i>Logout</div>
                 </div>
                 <div></div>
             </div>

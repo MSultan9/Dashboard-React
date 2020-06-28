@@ -52,6 +52,15 @@ class Table extends React.Component {
         };
     }
 
+    componentDidMount() {
+        if (this.props.title === "Users List") {
+            let storageData = localStorage.getItem('usersList')
+            let usersList = JSON.parse(storageData)
+            if (usersList)
+                this.setState({ users: usersList })
+        }
+    }
+
     validate(data) {
         let keys = Object.keys(data).slice(0, 5)
         if (keys.length === 5) {
@@ -75,6 +84,7 @@ class Table extends React.Component {
                     let allUsers = [...this.state.users]
                     allUsers.unshift(newData)
                     this.setState({ users: allUsers })
+                    this.saveData()
                 } else {
                     reject()
                     this.toastError()
@@ -93,6 +103,7 @@ class Table extends React.Component {
                     let allUsers = [...this.state.users]
                     allUsers[allUsers.indexOf(oldData)] = newData
                     this.setState({ users: allUsers })
+                    this.saveData()
                 } else {
                     reject()
                     this.toastError()
@@ -109,8 +120,13 @@ class Table extends React.Component {
                 let allUsers = [...this.state.users]
                 allUsers.splice(allUsers.indexOf(oldData), 1);
                 this.setState({ users: allUsers })
+                this.saveData()
             }, 600);
         })
+    }
+
+    saveData() {
+        localStorage.setItem('usersList', JSON.stringify(this.state.users));
     }
 
     toastSuccess(text) {

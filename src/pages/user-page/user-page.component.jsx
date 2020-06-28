@@ -11,6 +11,12 @@ class UserPage extends React.Component {
         role: "employee"
     }
 
+    componentDidMount() {
+        let storageData = localStorage.getItem('profileData')
+        let userInfo = JSON.parse(storageData)
+        if (userInfo)
+            this.setState(userInfo)
+    }
 
     handleChange = (event) => {
         const target = event.target;
@@ -40,7 +46,7 @@ class UserPage extends React.Component {
                 break;
             }
         }
-        if (error === false)
+        if (error === false) {
             toast.success("Profile Updated", {
                 position: "top-right",
                 autoClose: 5000,
@@ -49,6 +55,8 @@ class UserPage extends React.Component {
                 pauseOnHover: true,
                 draggable: true,
             });
+            localStorage.setItem('profileData', JSON.stringify(this.state));
+        }
     }
 
     render() {
