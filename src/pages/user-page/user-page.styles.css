@@ -39,3 +39,20 @@
 .submit input:hover {
     color: white;
 }
+
+@media screen and (max-width: 500px) {
+
+    .form-container {
+        padding: 15px;
+        padding-top: 80px;
+    }
+
+    .form-content {
+        grid-template-columns: 1fr;
+    }
+
+    .submit {
+        margin-top: 60px;
+    }
+
+}

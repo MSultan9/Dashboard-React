@@ -170,7 +170,7 @@ class Table extends React.Component {
                         {
                             icon: AccountCircleIcon,
                             tooltip: 'View',
-                            onClick: (event, rowData) => this.setState({ openModal: true, selectedUser: [rowData] }),
+                            onClick: (event, rowData) => this.setState({ openModal: true, selectedUser: rowData }),
                         }
                     ]}
                     editable={{

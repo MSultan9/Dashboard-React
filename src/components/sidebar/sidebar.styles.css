@@ -49,3 +49,70 @@
 .logout {
     color: rgb(234,34,40);
 }
+
+.hamburger {
+    left: 10px;
+    top: 10px;
+    position: absolute;
+    display: none;
+    transition: transform 0.4s;
+}
+
+.hamburger > div {
+    width: 20px;
+    height: 2px;
+    background-color: black;
+    margin-bottom: 4px;
+    transition: all 0.4s;
+}
+
+@media screen and (max-width: 950px) {
+
+    .sidebar-fixed {
+        width: 0px;
+        padding: 0px;
+        transition: width 0.4s;
+    }
+
+    .sidebar-fixed div:not(.hamburger), .sidebar-fixed img {
+        opacity: 0;
+        transition: opacity 0.1s;
+        pointer-events: none;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .sidebar-fixed.open {
+        width: 200px;
+        padding: 10px;
+        z-index: 102;
+    }
+
+    .sidebar-fixed.open div:not(.hamburger), .sidebar-fixed.open img {
+        opacity: 1;
+        transition: opacity 0.4s 0.2s;
+        pointer-events: all;
+    }
+
+    .sidebar-fixed.open + .hamburger {
+        transform: translateX(170px);
+        z-index: 103;
+    }
+
+    .sidebar-fixed.open + .hamburger > div:first-child {
+        transform: rotate(45deg)translate(2px, 6px);
+        width: 15px;
+    }
+
+    .sidebar-fixed.open + .hamburger > div:nth-child(2) {
+        transform: rotate(130deg)translate(2px,2px);
+        width: 15px;
+    }
+
+    .sidebar-fixed.open + .hamburger > div:last-child {
+        opacity: 0;
+    }
+
+}
