@@ -24,3 +24,38 @@
     opacity: 1;
     pointer-events: all;
 }
+
+.profile {
+    padding: 30px;
+}
+
+.info {
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.info > div {
+    display: flex;
+    font-size: 14px;
+}
+
+.info .fa {
+    font-size: 25px;
+}
+
+.profile h4, .info-text > div:nth-child(2) {
+    font-weight: 500;
+}
+
+.profile h6, .info-text > div:first-child {
+    color: rgb(153,153,189);
+    font-weight: 400;
+}
+
+@media screen and (max-width: 500px) {
+    .modal-text {
+        width: calc(100% - 30px);
+    }
+}
